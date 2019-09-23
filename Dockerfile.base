@@ -12,6 +12,8 @@ RUN mkdir -p /opt/ibm                                      && \
 
 COPY    *.sh informix_config.* informix_inf.env dinit    /opt/ibm/scripts/ 
 COPY    *.sql                                            /opt/ibm/sql/
+RUN     chmod a+x /opt/ibm/scripts/*.sh
+RUN     chmod a+x /opt/ibm/scripts/dinit
 RUN     ln -s /opt/ibm/scripts/informix_inf.env      /usr/local/bin/informix_inf.env 
 
 ADD     informix.prune.tar                /opt/ibm
